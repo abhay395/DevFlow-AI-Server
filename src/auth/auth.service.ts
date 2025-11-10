@@ -6,10 +6,10 @@ import { LoginDto } from './dto/login.dto';
 @Injectable()
 export class AuthService {
     constructor(private prisma: PrismaService) { }
-     signup(data: RegisterDto){
-        const {name,email,password} = data
-        const user =  this.prisma.user.create({
-            data:{
+    async signup(data: RegisterDto) {
+        const { name, email, password } = data
+        const user = await this.prisma.user.create({
+            data: {
                 name: name,
                 email: email,
                 password: password,
@@ -18,8 +18,8 @@ export class AuthService {
         return user;
     }
 
-    login(data:LoginDto){
-       const {email ,password} = data
-    //    const user = this.prisma.
+    login(data: LoginDto) {
+        const { email, password } = data
+        //    const user = this.prisma.
     }
 }
